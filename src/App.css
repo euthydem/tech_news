@@ -1,0 +1,22 @@
+.container {
+  background-color: blue;
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.technology-list {
+  list-style: none;
+  padding: 0;
+}
+
+.technology-item {
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
