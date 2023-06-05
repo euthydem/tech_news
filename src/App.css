@@ -1,6 +1,8 @@
 .container {
   background-color: #7fc955;
   padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .title {
@@ -15,13 +17,32 @@
 
 .technology-item {
   margin-bottom: 20px;
-  background-color: #ffffff;
-  padding: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
+
 .chatbot-container {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
+  text-align: center;
+}
+
+.fade-enter {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
 }

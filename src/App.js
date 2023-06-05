@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useTransition, animated } from 'react-spring';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import ChatBot from 'react-simple-chatbot';
 import './App.css';
 
 function App() {
     const [technologies, setTechnologies] = useState([]);
+    const [activeTechnology, setActiveTechnology] = useState(null);
+
 
     useEffect(() => {
         fetchTechnologies();
@@ -43,7 +45,7 @@ function App() {
                         {
                             id: 6,
                             name: 'Blockchain',
-                            description: 'распределенная база данных, которая записывает информацию в виде блоков и связывает их в цепочку.',
+                            description: 'Распределенная база данных, которая записывает информацию в виде блоков и связывает их в цепочку.',
                             status: 'Active',
                         },
                     ],
@@ -57,13 +59,6 @@ function App() {
             console.error('Ошибка получения данных:', error);
         }
     }
-
-    const transitions = useTransition(technologies, {
-        keys: (technology) => technology.id,
-        from: { opacity: 0, transform: 'translateY(-20px)' },
-        enter: { opacity: 1, transform: 'translateY(0)' },
-        config: { tension: 300, friction: 20 },
-    });
 
     const chatBotSteps = [
         {
@@ -86,15 +81,24 @@ function App() {
     return (
         <div className="container">
             <h1 className="title">Современные технологии по Gartner Hype Circle</h1>
-            <ul className="technology-list">
-                {transitions((props, item) => (
-                    <animated.li style={props} key={item.id} className="technology-item">
-                        <h2>{item.name}</h2>
-                        <p>{item.description}</p>
-                        <p>Status: {item.status}</p>
-                    </animated.li>
+            <TransitionGroup className="technology-list">
+                {technologies.map((item) => (
+                    <CSSTransition key={item.id} timeout={300} classNames="fade">
+                        <div
+                            className={`technology-item ${activeTechnology === item.id ? 'active' : ''}`}
+                            onClick={() => setActiveTechnology(item.id)}
+                        >
+                            <h2>{item.name}</h2>
+                            {activeTechnology === item.id && (
+                                <div className="description">
+                                    <p>{item.description}</p>
+                                    <p>Status: {item.status}</p>
+                                </div>
+                            )}
+                        </div>
+                    </CSSTransition>
                 ))}
-            </ul>
+            </TransitionGroup>
             <div className="chatbot-container">
                 <ChatBot
                     steps={chatBotSteps}
