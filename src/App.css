@@ -46,3 +46,29 @@
   opacity: 0;
   transition: opacity 300ms;
 }
+.technology-item {
+  cursor: pointer;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  transition: background-color 300ms;
+}
+
+.technology-item:hover {
+  background-color: #f7f7f7;
+}
+
+.description {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 300ms, opacity 300ms;
+}
+
+.technology-item.active .description {
+  opacity: 1;
+  max-height: 100px; /* Укажите желаемую высоту для текста */
+}
+

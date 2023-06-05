@@ -7,7 +7,6 @@ function App() {
     const [technologies, setTechnologies] = useState([]);
     const [activeTechnology, setActiveTechnology] = useState(null);
 
-
     useEffect(() => {
         fetchTechnologies();
     }, []);
@@ -81,7 +80,7 @@ function App() {
     return (
         <div className="container">
             <h1 className="title">Современные технологии по Gartner Hype Circle</h1>
-            <TransitionGroup className="technology-list">
+            <TransitionGroup component="ul" className="technology-list">
                 {technologies.map((item) => (
                     <CSSTransition key={item.id} timeout={300} classNames="fade">
                         <div
