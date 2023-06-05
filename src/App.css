@@ -82,6 +82,7 @@
   background: url(https://i.makeagif.com/media/10-22-2015/PRJuvO.gif) repeat;
   background-size: cover;
   z-index: -1;
+  animation: backgroundAnimation 10s linear infinite;
 }
 .transparent-block {
   background-color: rgba(236, 233, 233, 0.5);
