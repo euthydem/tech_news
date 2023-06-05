@@ -40,6 +40,12 @@ function App() {
                             description: 'Распределенные облачные вычисления, которые позволяют работать с данными и приложениями более эффективно и безопасно.',
                             status: 'Active',
                         },
+                        {
+                            id: 6,
+                            name: 'Blockchain',
+                            description: 'распределенная база данных, которая записывает информацию в виде блоков и связывает их в цепочку.',
+                            status: 'Active',
+                        },
                     ],
                 }),
         };
@@ -98,7 +104,7 @@ function App() {
                         right: '20px',
                         borderRadius: '5px',
                         boxShadow: '0 2px 5px rgba(0, 0, 0, 0.15)',
-                        backgroundColor: '#fff',
+                        backgroundColor: '#7fc955',
                         color: '#333',
                     }}
                 />
