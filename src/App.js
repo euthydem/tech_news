@@ -79,6 +79,7 @@ function App() {
 
     return (
         <div className="container">
+            <div className="background-animation"></div>
             <h1 className="title">Современные технологии по Gartner Hype Circle</h1>
             <TransitionGroup component="ul" className="technology-list">
                 {technologies.map((item) => (
