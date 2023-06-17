@@ -1,5 +1,4 @@
 .container {
-  #background-color: #7fc955;
   padding: 20px;
   max-width: 800px;
   margin: 0 auto;
@@ -18,11 +17,38 @@
 }
 
 .technology-item {
-  margin-bottom: 20px;
-  background-color: #f2f2f2;
-  padding: 20px;
+  cursor: pointer;
+  padding: 10px;
+  margin-bottom: 10px;
   border-radius: 5px;
+  background-color: #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  transition: background-color 300ms;
+}
+
+.technology-item:hover {
+  background-color: #f7f7f7;
+}
+
+.technology-item-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.technology-item h2 {
+  margin-bottom: 10px;
+}
+
+.description {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 300ms, opacity 300ms;
+}
+
+.technology-item.active .description {
+  opacity: 1;
+  max-height: none; /* Remove the fixed height for dynamic text */
 }
 
 .chatbot-container {
@@ -48,33 +74,9 @@
   opacity: 0;
   transition: opacity 300ms;
 }
-.technology-item {
-  cursor: pointer;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-  transition: background-color 300ms;
-}
 
-.technology-item:hover {
-  background-color: #f7f7f7;
-}
-
-.description {
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 300ms, opacity 300ms;
-}
-
-.technology-item.active .description {
-  opacity: 1;
-  max-height: 100px; /* Укажите желаемую высоту для текста */
-}
 .background-animation {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -83,7 +85,4 @@
   background-size: cover;
   z-index: -1;
   animation: backgroundAnimation 10s linear infinite;
-}
-.transparent-block {
-  background-color: rgba(236, 233, 233, 0.5);
 }
